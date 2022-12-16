@@ -28,7 +28,9 @@
 {
     color: var(--white);
     background-color: #DE0000;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
 }
 
 .gray

@@ -26,7 +26,7 @@ const Rating = ({rating, setRating, isEditable = false, ...props}: PRating):JSX.
                 >
                      <StarIcon 
                         tabIndex={isEditable ? 0 : -1}
-                        onKeyDown={(e: KeyboardEvent<SVGElement>) => isEditable && handleSpace(i + 1, e)}
+                        // onKeyDown={(e: KeyboardEvent<SVGElement>) => isEditable && handleSpace(i + 1, e)}
                     />
                 </span>
                
