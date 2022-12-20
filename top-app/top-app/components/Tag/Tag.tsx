@@ -5,7 +5,7 @@ import cn from 'classnames';
 const Tag = ({size='12px', href, children, color = "ghost", className, ...props}: TagProps):JSX.Element => {
 
     return (
-        <div className={cn(styles.tag, {
+        <div className={cn(className, styles.tag, {
             [styles.small]: size == '12px',
             [styles.big]: size == '14px',
             [styles.ghost]: color == 'ghost',

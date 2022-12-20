@@ -11,6 +11,8 @@ import { TopLevelCategory } from "../../interfaces/page.interface";
 import { sortReducer } from "./sort.reducer";
 import styles from './TopPageComponent.module.css';
 import { TopPageComponentProps } from "./TopPageComponent.props";
+import Product from "../../components/Product/Product";
+
 
 const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps): JSX.Element => {
 
@@ -31,7 +33,7 @@ const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps
                 <Sort sort={sort} setSort={setSort}/>
             </div>   
             <div>
-                {sortedProducts && sortedProducts.map(p => (<div key={p._id}>{p.title}</div>))}
+                {sortedProducts && sortedProducts.map(p => <Product key={p._id} product={p}/>)}
             </div>
             <div className={styles.hhTitle}>
                 <Htag tag="h2">
