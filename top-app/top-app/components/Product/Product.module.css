@@ -2,7 +2,7 @@
 {
     display: grid;
     grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratestart] auto [end];
-    margin-bottom: 30px;
+    margin-top: 30px;
     padding: 40px;
 }
 
@@ -63,11 +63,6 @@
 .category
 {
     margin-top: 7px;
-}
-
-.tag
-{
-
 }
 
 .month
@@ -162,6 +157,25 @@
     border-bottom: 1px dashed var(--grey-light);
     margin-top: 20px;
     align-items: baseline;
+}
+
+.closed
+{
+    overflow: hidden;
+    max-width: 0;
+    max-height: 0;
+    padding: 0;
+}
+
+.opened
+{
+    max-width: auto;
+    padding: 30px;
+}
+
+.rateTitle a 
+{
+    color: var(--primary);
 }
 
 @media screen and (max-width: 1320px) {
@@ -297,3 +311,4 @@
     }
    
 }
+

@@ -13,6 +13,7 @@ import Input from "../components/Input/Input";
 import Textarea from "../components/Textarea/Textarea";
 import Search from "../components/Search/Search";
 import Product from "../components/Product/Product";
+import { API } from "../helpers/api";
 
 function Home({menu, firstCategory} : HomeProps): JSX.Element {
   
@@ -45,7 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const firstCategory = 0;
 
-  const {data: menu} = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', 
+  const {data: menu} = await axios.post<MenuItem[]>(API.topPage.find, 
     {
       firstCategory
     });

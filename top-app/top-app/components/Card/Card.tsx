@@ -1,17 +1,19 @@
 import { CardProps } from "./Card.props";
 import cn from 'classnames';
 import styles from './Card.module.css';
+import { ForwardedRef, forwardRef } from "react";
 
-const Card = ({children, color = 'white', className, ...props}: CardProps):JSX.Element => {
+const Card = forwardRef(({children, color = 'white', className, ...props}: CardProps, ref: ForwardedRef<HTMLDivElement>):JSX.Element => {
     return (
         <div className={cn(styles.card, className, {
             [styles.blue] : color == 'blue'
             })} 
+            ref={ref}
             {...props}
         >
             {children}
        </div>
     )
-}
+})
 
 export default Card;

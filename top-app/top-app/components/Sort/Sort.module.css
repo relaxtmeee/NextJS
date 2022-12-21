@@ -18,6 +18,7 @@
 .sort
 {
     display: inline-block;
+    
     display: grid;
     grid-template-columns: auto auto;
     gap: 40px;

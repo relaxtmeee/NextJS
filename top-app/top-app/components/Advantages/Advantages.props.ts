@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { TopPageAdvantage } from "../../interfaces/page.interface";
 
-export interface HtagProps {
-    tag: 'h1' | 'h2' | 'h3';
-    children: ReactNode
+
+export interface AdvantagesProps {
+    advantages: TopPageAdvantage[]
 }

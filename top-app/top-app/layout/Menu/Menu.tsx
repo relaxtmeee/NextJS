@@ -13,14 +13,6 @@ const Menu = ()=> {
     const {menu, setMenu, firstCategory} = useContext(AppContext);
     const router = useRouter();
 
-    // const openSecondLevel = (secondCategory: string) => {
-    //     setMenu && setMenu(menu.map(m => {
-    //         if(m._id.secondCategory == secondCategory) {
-    //             m.isOpened = !m.isOpened
-    //         }
-    //         return m;
-    //     }))
-    // }
     const openSecondLevel = (secondCategory: string) => {
 		setMenu && setMenu(menu.map(m => {
 			if (m._id.secondCategory == secondCategory) {
@@ -32,12 +24,11 @@ const Menu = ()=> {
 
     const buildFirstLevel = () => {
 
-        
         return (
             <>
                {firstLevelMenu.map(m => (
 					<>
-						<Link legacyBehavior href={`/${m.route}`}>
+						<Link key={m.id} legacyBehavior href={`/${m.route}`}>
 							<a>
 								<div className={cn(styles.firstLevel, {
 									[styles.firstLevelActive]: m.id == firstCategory
@@ -87,7 +78,7 @@ const Menu = ()=> {
         return (
             pages.map(p => {
                 return (
-                    <Link legacyBehavior href={`/${route}/${p.alias}`}>
+                    <Link legacyBehavior href={`/${route}/${p.alias}`} key={p._id}>
                         <a className={cn(styles.thirdLevel, {
                             [styles.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath
                         })}>
