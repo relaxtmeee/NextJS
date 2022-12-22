@@ -51,19 +51,8 @@
 
 .secondLevelBlock
 {
-    display: none;
+    overflow: hidden;
 }
-
-.secondLevelBlockOpened
-{
-    display: block;
-}
-
-.secondLevelBlockOpened:last-child
-{
-    margin-bottom: 20px;
-}
-
 
 .thirdLevel
 {

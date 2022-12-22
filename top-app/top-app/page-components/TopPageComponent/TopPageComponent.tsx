@@ -10,6 +10,7 @@ import { sortReducer } from "./sort.reducer";
 import styles from './TopPageComponent.module.css';
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import Product from "../../components/Product/Product";
+import { useScrollY } from "../../hooks/useScrollY";
 
 
 const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps): JSX.Element => {
@@ -33,7 +34,7 @@ const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps
                 <Sort sort={sort} setSort={setSort}/>
             </div>   
             <div>
-                {sortedProducts && sortedProducts.map(p => <Product key={p._id} product={p}/>)}
+                {sortedProducts && sortedProducts.map(p => <Product layout key={p._id} product={p}/>)}
             </div>
             <div className={styles.hhTitle}>
                 <Htag tag="h2">

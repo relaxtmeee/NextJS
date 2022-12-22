@@ -6,6 +6,7 @@ import Sidebar from './Sidebar/Sidebar';
 import Footer from './Footer/Footer';
 import { FC, FunctionComponent } from 'react';
 import { AppContextProvider, IAppContext } from '../context/app.context';
+import Up from '../components/Up/Up';
 
 const Layout = ({children}: PLayout):JSX.Element => {
     return (
@@ -16,6 +17,7 @@ const Layout = ({children}: PLayout):JSX.Element => {
                 {children}
             </div>
             <Footer className={styles.footer}/>
+            <Up/>
         </div>
     )
 }
