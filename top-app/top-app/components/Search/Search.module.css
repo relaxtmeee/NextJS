@@ -4,15 +4,15 @@
     width: 100%;
 }
 
-.input
+.input input
 {
     width: 100%;
 }
 
 .button
 {
-    position: absolute;
-    padding: 7px;
+    position: absolute !important;
+    padding: 7px !important;
     top: 3px;
     right: 3px;
 

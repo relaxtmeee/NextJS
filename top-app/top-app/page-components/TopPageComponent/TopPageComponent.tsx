@@ -11,13 +11,16 @@ import styles from './TopPageComponent.module.css';
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import Product from "../../components/Product/Product";
 import { useScrollY } from "../../hooks/useScrollY";
+import { useReducedMotion } from "framer-motion";
 
 
 const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps): JSX.Element => {
 
     const [{products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating});
 
-    const setSort = (sort: SortEnum) => {
+    const shouldReduceMOtion = useReducedMotion();
+
+    const setSort = (sort: SortEnum) => { 
         dispatchSort({type: sort});
     }
 
@@ -30,11 +33,11 @@ const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps
                 <Htag tag='h1'>
                     {page.title}    
                 </Htag>    
-                    {products && <Tag color="gray" size='14px'>{products.length}</Tag>}  
+                    {products && <Tag color="gray" size='14px' aria-label={products.length + "10 курсов"}>{products.length}</Tag>}  
                 <Sort sort={sort} setSort={setSort}/>
             </div>   
-            <div>
-                {sortedProducts && sortedProducts.map(p => <Product layout key={p._id} product={p}/>)}
+            <div role='list'>
+                {sortedProducts && sortedProducts.map(p => <Product role='listitem' layout={shouldReduceMOtion ? false : true} key={p._id} product={p}/>)}
             </div>
             <div className={styles.hhTitle}>
                 <Htag tag="h2">

@@ -21,7 +21,6 @@
 .primary:hover
 {
     background-color: var(--primary-hover);
-    transform: translateY(-3px);
 }
 
 .primary:active
@@ -40,12 +39,6 @@
 {
     color: var(--white);
     background-color: var(--primary-hover);
-    transform: translateY(-3px);
-}
-
-.ghost:active
-{
-    transform: translateY(6px);
 }
 
 .arrow

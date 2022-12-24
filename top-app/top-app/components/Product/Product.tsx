@@ -46,22 +46,27 @@ const Product = motion(forwardRef(({product, className, ...props}: ProductProps,
                 {product.title}
             </div>
             <div className={styles.price}>
-                {priceRu(product.price)}
-                {product.oldPrice && <Tag className={styles.oldprice} color="green">{priceRu(product.price - product.oldPrice)}</Tag>}
+                <span><span className="visuallyHidden">цена</span>{priceRu(product.price)}</span> 
+                {product.oldPrice && <Tag className={styles.oldprice} color="green">
+                    <span className="visuallyHidden">скидка</span>
+                    {priceRu(product.price - product.oldPrice)}
+                </Tag>}
             </div>
             <div className={styles.credit}>
+                <span className="visuallyHidden">кредит</span>
                 {priceRu(product.credit)}/<span className={styles.month}>мес</span>
             </div>
             <div className={styles.rating}>
+                <span className="visuallyHidden">{'рейтинг' + product.reviewAvg ?? product.initialRating}</span>
                 <Rating rating={product.reviewAvg ?? product.initialRating}/>
             </div>
             <div className={styles.tags}>
                 {product.categories.map(c => <Tag key={c} className={styles.category} color="ghost">{c}</Tag>)}
             </div>
-            <div className={styles.priceTitle}>
+            <div className={styles.priceTitle} aria-hidden={true}>
                 Цена
             </div>
-            <div className={styles.creditTitle}>
+            <div className={styles.creditTitle} aria-hidden={true}>
                 Кредит
             </div>
             <div className={styles.rateTitle}>
@@ -107,6 +112,7 @@ const Product = motion(forwardRef(({product, className, ...props}: ProductProps,
                     appearance='ghost' 
                     arrow={isReviewOpened ? "down" : 'right'}
                     onClick={() => setIsReviewOpened(!isReviewOpened)}
+                    aria-expanded={isReviewOpened}
                 >
                     Читать отзывы
                 </Button>
@@ -127,7 +133,7 @@ const Product = motion(forwardRef(({product, className, ...props}: ProductProps,
                         </div>
                     )
                 })}
-                <ReviewForm productId={product._id}/>
+                <ReviewForm productId={product._id} isOpened={isReviewOpened}/>
             </Card>
         </motion.div>
        </div>

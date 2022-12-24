@@ -8,11 +8,8 @@ import { withLayout } from "../layout/Layout";
 import { GetStaticProps } from "next";
 import axios from 'axios';
 import { MenuItem } from "../interfaces/menu.interface";
-import { log } from "console";
 import Input from "../components/Input/Input";
 import Textarea from "../components/Textarea/Textarea";
-import Search from "../components/Search/Search";
-import Product from "../components/Product/Product";
 import { API } from "../helpers/api";
 
 function Home({menu, firstCategory} : HomeProps): JSX.Element {

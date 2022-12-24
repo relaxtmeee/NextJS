@@ -4,18 +4,46 @@ import styles from './Layout.module.css';
 import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 import Footer from './Footer/Footer';
-import { FC, FunctionComponent } from 'react';
+import { FC, FunctionComponent, KeyboardEvent, useRef, useState } from 'react';
 import { AppContextProvider, IAppContext } from '../context/app.context';
 import Up from '../components/Up/Up';
 
 const Layout = ({children}: PLayout):JSX.Element => {
+
+    const [isSkipLonkDisplayed, setIsSkipLonkDisplayed] = useState<boolean>(false);
+
+    const bodyRef = useRef<HTMLDivElement>(null);
+
+    const skipContentAction = (key: KeyboardEvent) => {
+        if (key.code == 'Space' || key.code == 'Enter') {
+            key.preventDefault();
+            bodyRef.current?.focus();
+        }
+        setIsSkipLonkDisplayed(false);
+    }
+
     return (
         <div className={styles.wrapper}>
+            <a 
+                onFocus={() => setIsSkipLonkDisplayed(true)}
+                tabIndex={1} 
+                className={cn(styles.skipLink, {
+                    [styles.displayed]: isSkipLonkDisplayed
+                })}
+                onKeyDown={skipContentAction}
+            >
+                Сразу к содержанию</a>
             <Header className={styles.header}/>
             <Sidebar className={styles.sidebar}/>
-            <div className={styles.body}>
+            <main 
+                role='main'
+                ref={bodyRef}
+                tabIndex={0}
+                className={styles.body}
+
+            >
                 {children}
-            </div>
+            </main>
             <Footer className={styles.footer}/>
             <Up/>
         </div>

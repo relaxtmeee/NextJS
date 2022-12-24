@@ -13,7 +13,7 @@ const Input = forwardRef(({className, error,  ...props}: InputProps, ref: Forwar
                 {...props} 
                 ref={ref}
             />
-            {error && <span className={styles.errorMessage}>{error.message}</span>}
+            {error && <span role='alert' className={styles.errorMessage}>{error.message}</span>}
         </div>
        
     )

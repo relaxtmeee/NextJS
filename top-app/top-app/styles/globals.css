@@ -16,28 +16,26 @@ a {
   box-sizing: border-box;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-} */
+.visuallyHidden
+{
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+}
 
 :root {
   --black: #3B434E;
   --grey-light: #EBEBEB;
   --grey: #A4A4A4;
   --grey-light-hover: #d2d2d2;
-  --grey-dark: #787D85;
+  --grey-dark: #6c7077;
   --white: white;
-  --primary: #7653FC; 
+  --primary: #563db7;
   --primary-hover: #5035bc; 
   --red-light: #f7aa9c;
   --red: #FC836D;
-  --green: #1DC37E;
+  --green: #127a4f;
   --green-light: #C8F8E4;
   --font-family: 'Noto Sans', sans-serif;
 }

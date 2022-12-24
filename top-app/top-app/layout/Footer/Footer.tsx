@@ -5,7 +5,7 @@ import format from 'date-fns/format';
 
 const Footer = ({className, ...props}: PFooter):JSX.Element => {
     return (
-        <footer className={cn(className, styles.footer)} {...props}>
+        <footer className={cn(className, styles.footer)} {...props} role='footer'>
             <div>
                 OwlTop © 2020 - {format(new Date(), 'yyyy')} Все права защищены
             </div>

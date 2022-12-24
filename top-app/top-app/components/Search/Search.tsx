@@ -31,7 +31,7 @@ const Search = ({className, ...props}: SearchProps):JSX.Element => {
     }
 
     return (
-      <div className={cn(className, styles.search)} {...props}>
+      <form className={cn(className, styles.search)} {...props} role="search">
         <Input 
         className={styles.input}
             placeholder="Поиск..."
@@ -43,10 +43,11 @@ const Search = ({className, ...props}: SearchProps):JSX.Element => {
             appearance="primary"
             className={styles.button}
             onClick={goToSearch}    
+            aria-label="Искать по сайту"
         >
             <GlassIcon />
         </Button>
-      </div>
+      </form>
     )
 }
 

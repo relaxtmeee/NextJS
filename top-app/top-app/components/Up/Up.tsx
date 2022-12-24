@@ -24,7 +24,6 @@ const Up = ():JSX.Element => {
     return (
         <motion.div  
             className={styles.up} 
-            
             animate={controls}
             initial={{opacity: 0}}
         >
