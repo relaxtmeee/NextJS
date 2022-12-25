@@ -15,7 +15,7 @@ import { API } from "../helpers/api";
 function Home({menu, firstCategory} : HomeProps): JSX.Element {
   
   const [rating, setRating] = useState<number>(4);
-  
+
   return (
     <>
       <Htag tag="h1">Text</Htag>

@@ -27,6 +27,7 @@ const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps
     useEffect(() => {
         dispatchSort({type: 'reset', initialState: products});
     }, [products])
+    
     return (
         <div className={styles.wrapper}>
             <div className={styles.title}>
